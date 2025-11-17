@@ -67,21 +67,19 @@ export default function CustomersPage(): JSX.Element {
       </div>
 
       <div className="mt-4">
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
           <input
             placeholder="Search customers..."
             className="flex-1 border rounded-lg px-4 py-2 text-sm text-gray-600"
           />
-          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600">
+          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
             <option>All Status</option>
             <option>Active</option>
             <option>Inactive</option>
           </select>
-          <div className="ml-auto flex items-center gap-2">
-            <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm">
-              Filter
-            </button>
-          </div>
+          <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm whitespace-nowrap">
+            Filter
+          </button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {customers.map((c) => (

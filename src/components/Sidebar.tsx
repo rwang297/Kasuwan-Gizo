@@ -4,7 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname() || "/";
 
   const [forceFullNav, setForceFullNav] = useState(false);
@@ -30,18 +35,17 @@ export default function Sidebar() {
     { label: "Settings", href: "/settings", icon: "settings" },
   ];
 
-  return (
-    <aside className="hidden md:flex fixed top-0 left-0 h-screen w-64 bg-white border-r border-gray-100 flex-col overflow-y-auto z-40">
-      <div className="px-4 py-6">
+  const SidebarContent = () => (
+    <>
+      <div className="px-4 py-6 border-b border-gray-100">
         <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white">
-          <img
-            src="/images/logos.png"
-            alt="Logo"
-            className="w-full h-full object-contain rounded-lg"
-          />
-        </div>
-
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white">
+            <img
+              src="/images/logos.png"
+              alt="Logo"
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
           <span className="text-lg font-semibold text-gray-900">Kasuwan Gizo</span>
         </div>
       </div>
@@ -61,14 +65,14 @@ export default function Sidebar() {
             return (
               <li key={item.label}>
                 {forceFullNav ? (
-                  <a href={item.href} className={classes}>
+                  <a href={item.href} className={classes} onClick={onClose}>
                     <span className="w-5 h-5 text-gray-500 group-hover:text-gray-700 flex items-center justify-center">
                       {getIcon(item.icon)}
                     </span>
                     <span className="flex-1">{item.label}</span>
                   </a>
                 ) : (
-                  <Link href={item.href} className={classes}>
+                  <Link href={item.href} className={classes} onClick={onClose}>
                     <span className="w-6 h-6 text-gray-500 group-hover:text-gray-700 flex items-center justify-center">
                       {getIcon(item.icon)}
                     </span>
@@ -90,7 +94,34 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex fixed top-0 left-0 h-screen w-64 bg-white border-r border-gray-100 flex-col overflow-y-auto z-40">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile Drawer Backdrop */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          onClick={onClose}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Drawer */}
+      <aside
+        className={`fixed top-0 left-0 h-screen w-64 bg-white border-r border-gray-100 flex-col overflow-y-auto z-40 md:hidden transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <SidebarContent />
+      </aside>
+    </>
   );
 }
 

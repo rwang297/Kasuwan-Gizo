@@ -36,20 +36,20 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-semibold text-gray-900">Dashboard Overview</h2>
           <p className="text-sm text-gray-500">Welcome back! Here's what's happening with your business today.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <input placeholder="Search products, orders, customers" className="text-gray-500 border rounded-lg px-3 py-2 text-sm w-[340px]" />
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+          <input placeholder="Search products, orders, customers" className="text-gray-500 border rounded-lg px-3 py-2 text-sm flex-1 sm:flex-none sm:w-[280px] lg:w-[340px]" />
         <button
-          className="px-4 py-2 bg-white border rounded-lg text-gray-800 active:bg-gray-200 transition-colors"
+          className="px-4 py-2 bg-white border rounded-lg text-gray-800 active:bg-gray-200 transition-colors whitespace-nowrap"
           onClick={() => setShowAddListing(true)}
         >
           + Add Product
         </button>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-sm text-gray-600">ID</div>
+          <div className="hidden sm:flex w-10 h-10 bg-gray-100 rounded-full items-center justify-center text-sm text-gray-600">ID</div>
         </div>
       </div>
 
@@ -105,38 +105,38 @@ export default function DashboardPage() {
       </div>
 
       <div className="bg-white border rounded-lg p-4 shadow-sm">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-3">
           <div className="font-semibold text-gray-700">Recent Products</div>
-          <button className="text-gray-600 px-3 py-1 border rounded">View All Orders</button>
+          <button className="text-gray-600 px-3 py-1 border rounded whitespace-nowrap text-sm">View All Orders</button>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-gray-500">
-                <th className="py-2">Order ID</th>
-                <th className="py-2">Products/Services</th>
-                <th className="py-2">Name</th>
-                <th className="py-2">Amount</th>
-                <th className="py-2">Status</th>
-                <th className="py-2">Time</th>
-                <th className="py-2">Actions</th>
+                <th className="py-2 whitespace-nowrap">Order ID</th>
+                <th className="py-2 whitespace-nowrap">Products/Services</th>
+                <th className="py-2 whitespace-nowrap">Name</th>
+                <th className="py-2 whitespace-nowrap">Amount</th>
+                <th className="py-2 whitespace-nowrap">Status</th>
+                <th className="py-2 whitespace-nowrap">Time</th>
+                <th className="py-2 whitespace-nowrap">Actions</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((o) => (
                 <tr key={o.id} className="border-t">
-                  <td className="py-3 text-blue-600 font-medium">{o.id}</td>
-                  <td className="py-3 text-gray-600">{o.customer}</td>
-                  <td className="py-3 text-gray-600">{o.product}</td>
-                  <td className="py-3 text-gray-600">{o.amount}</td>
-                  <td className="py-3">
+                  <td className="py-3 text-blue-600 font-medium whitespace-nowrap">{o.id}</td>
+                  <td className="py-3 text-gray-600 whitespace-nowrap">{o.customer}</td>
+                  <td className="py-3 text-gray-600 whitespace-nowrap">{o.product}</td>
+                  <td className="py-3 text-gray-600 whitespace-nowrap">{o.amount}</td>
+                  <td className="py-3 whitespace-nowrap">
                     <span className={`px-3 py-1 rounded-full text-xs ${
-                      o.status === "completed" ? "bg-green-50 text-green-600" : o.status === "processing" ? "bg-blue-50 text-blue-600" : 
+                      o.status === "completed" ? "bg-green-50 text-green-600" : o.status === "processing" ? "bg-blue-50 text-blue-600" :
                       "bg-green-300 text-gray-600"
                     }`}>{o.status}</span>
                   </td>
-                  <td className="py-3 text-gray-500">{o.time}</td>
-                  <td className="py-3 text-gray-400">⋯</td>
+                  <td className="py-3 text-gray-500 whitespace-nowrap">{o.time}</td>
+                  <td className="py-3 text-gray-400 whitespace-nowrap">⋯</td>
                 </tr>
               ))}
             </tbody>

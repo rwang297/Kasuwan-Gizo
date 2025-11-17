@@ -16,19 +16,19 @@ export default function OrdersPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-gray-800">Products Management</h1>
           <p className="text-sm text-gray-500">Track and manage your Products</p>
         </div>
-        <div className="flex items-center gap-3">
-          <input placeholder="Search orders or customers..." className="border rounded-lg px-3 py-2 text-sm w-[340px] text-gray-600" />
-          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+          <input placeholder="Search orders or customers..." className="border rounded-lg px-3 py-2 text-sm flex-1 sm:flex-none sm:w-[200px] lg:w-[280px] text-gray-600" />
+          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
             <option>All Status</option>
             <option>Pending</option>
             <option>Completed</option>
           </select>
-          <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm">Filter</button>
+          <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm whitespace-nowrap">Filter</button>
         </div>
       </div>
 
@@ -52,23 +52,23 @@ export default function OrdersPage() {
 
         <div className="space-y-3">
           {orders.map((o) => (
-            <div key={o.id} className="flex items-center justify-between p-3 border rounded-lg">
-              <div className="flex items-center gap-4">
-                <img src={o.avatar} alt="avatar" className="w-10 h-10 rounded-full" />
-                <div>
-                  <div className="text-sm font-medium text-gray-500">{o.id} <span className="ml-2 text-xs text-gray-500"></span></div>
+            <div key={o.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3 border rounded-lg">
+              <div className="flex items-center gap-4 flex-1 min-w-0">
+                <img src={o.avatar} alt="avatar" className="w-10 h-10 rounded-full flex-shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-medium text-gray-500 truncate">{o.id} <span className="ml-2 text-xs text-gray-500"></span></div>
                   <div className="text-xs text-gray-500">{o.customer}</div>
                   <div className="text-xs text-gray-400">{o.email}</div>
                 </div>
               </div>
 
-              <div className="text-sm text-gray-500">
-                <div>Items <span className="font-medium">{o.items}</span></div>
-                <div>Total <span className="font-medium">{o.total}</span></div>
+              <div className="text-sm text-gray-500 grid grid-cols-3 sm:flex sm:flex-col gap-3 sm:gap-0 sm:text-right w-full sm:w-auto">
+                <div>Items <span className="font-medium block sm:inline sm:ml-2">{o.items}</span></div>
+                <div>Total <span className="font-medium block sm:inline sm:ml-2">{o.total}</span></div>
                 <div className="text-xs text-gray-400">{o.date}</div>
               </div>
 
-              <div className="text-gray-400">⋯</div>
+              <div className="text-gray-400 text-right">⋯</div>
             </div>
           ))}
         </div>

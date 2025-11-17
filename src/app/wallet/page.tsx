@@ -9,14 +9,12 @@ const transactions = [
 export default function WalletPage() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold">Wallet & Finance</h1>
           <p className="text-sm text-gray-500">Manage your earnings and financial transactions</p>
         </div>
-        <div>
-          <button className="px-4 py-2 bg-green-600 text-white rounded-lg shadow">Withdraw Funds</button>
-        </div>
+        <button className="px-4 py-2 bg-green-600 text-white rounded-lg shadow whitespace-nowrap">Withdraw Funds</button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white border rounded-lg p-4 shadow-sm">
@@ -45,27 +43,27 @@ export default function WalletPage() {
         <ActionCard title="Support" subtitle="Get help" />
       </div>
       <div className="bg-white border rounded-lg p-4 shadow-sm">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
           <div className="font-semibold">Transaction History</div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
             <select className="border rounded-lg px-3 py-2 text-sm">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 90 days</option>
             </select>
-            <button className="px-3 py-2 border rounded text-sm">Export</button>
+            <button className="px-3 py-2 border rounded text-sm whitespace-nowrap">Export</button>
           </div>
         </div>
 
         <div className="space-y-3">
           {transactions.map((t) => (
-            <div key={t.id} className="flex items-center justify-between p-3 border rounded-lg">
-              <div>
-                <div className="text-sm font-medium">{t.title} <span className="ml-2 text-xs text-gray-500">{t.id}</span></div>
+            <div key={t.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3 border rounded-lg">
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-medium truncate">{t.title} <span className="ml-2 text-xs text-gray-500">{t.id}</span></div>
                 <div className="text-xs text-gray-400">{t.status}</div>
               </div>
 
-              <div className="text-right">
+              <div className="text-right flex-shrink-0">
                 <div className={`font-semibold ${t.type === 'credit' ? 'text-green-600' : 'text-red-600'}`}>{t.amount}</div>
                 <div className="text-xs text-gray-400">{t.date}</div>
               </div>

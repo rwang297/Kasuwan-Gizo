@@ -17,9 +17,9 @@ export default function Header() {
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-         <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white">
+      <div className="px-4 md:px-6 py-4 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2 min-w-0">
+         <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white flex-shrink-0">
   <img
     src="/images/logos.png"
     alt="Logo"
@@ -27,15 +27,15 @@ export default function Header() {
   />
 </div>
 
-          <span className="text-xl font-bold text-gray-900">Kasuwan Gizo</span>
+          <span className="text-lg md:text-xl font-bold text-gray-900 truncate">Kasuwan Gizo</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
           {forceFullNav ? (
             <>
-              <a href="/marketplace" className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+              <a href="/marketplace" className="px-3 md:px-6 py-2 bg-blue-600 text-white rounded-lg text-sm md:font-semibold hover:bg-blue-700 transition whitespace-nowrap">
                 Login
               </a>
-              <a href="/signup" className="px-6 py-2 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition">
+              <a href="/signup" className="px-3 md:px-6 py-2 bg-teal-600 text-white rounded-lg text-sm md:font-semibold hover:bg-teal-700 transition whitespace-nowrap">
                 Get Started
               </a>
             </>
@@ -43,13 +43,13 @@ export default function Header() {
             <>
               <Link
                 href="/login"
-                className="px-6 py-2 text-teal-600 border-2 rounded-lg font-semibold  transition"
+                className="px-3 md:px-6 py-2 text-teal-600 border-2 rounded-lg text-sm md:font-semibold transition whitespace-nowrap"
               >
                 Login
               </Link>
               <Link
                 href="/signup"
-                className="px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition"
+                className="px-3 md:px-6 py-2 md:py-3 bg-teal-600 text-white rounded-lg text-sm md:font-semibold hover:bg-teal-700 transition whitespace-nowrap"
               >
                 Get Started
               </Link>

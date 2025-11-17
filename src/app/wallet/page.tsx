@@ -43,15 +43,15 @@ export default function WalletPage() {
         <ActionCard title="Support" subtitle="Get help" />
       </div>
       <div className="bg-white border rounded-lg p-4 shadow-sm">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
           <div className="font-semibold">Transaction History</div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
             <select className="border rounded-lg px-3 py-2 text-sm">
               <option>Last 7 days</option>
               <option>Last 30 days</option>
               <option>Last 90 days</option>
             </select>
-            <button className="px-3 py-2 border rounded text-sm">Export</button>
+            <button className="px-3 py-2 border rounded text-sm whitespace-nowrap">Export</button>
           </div>
         </div>
 

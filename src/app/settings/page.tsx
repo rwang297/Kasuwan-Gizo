@@ -27,21 +27,21 @@ export default function SettingsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         <aside className="md:col-span-4">
-          <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
+          <div className="bg-white border border-gray-100 rounded-xl p-4 md:p-5 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500 to-pink-500 text-white flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m8.66-11.66l-.7.7M4.04 19.96l-.7.7M21 12h-1M4 12H3m15.36 5.66l-.7-.7M6.34 4.34l-.7-.7" />
                   </svg>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-sm font-semibold text-gray-900">Light Mode</div>
                   <div className="text-xs text-gray-500">Switch to dark theme</div>
                 </div>
               </div>
 
-              <div>
+              <div className="flex-shrink-0">
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
@@ -60,7 +60,7 @@ export default function SettingsPage() {
                   <button
                     key={t}
                     onClick={() => setActiveTab(t)}
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${activeTab === t ? "bg-indigo-600 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"}`}
+                    className={`px-3 py-1 rounded-md text-xs md:text-sm font-medium whitespace-nowrap ${activeTab === t ? "bg-indigo-600 text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"}`}
                   >
                     {t}
                   </button>

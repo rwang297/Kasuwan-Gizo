@@ -36,20 +36,20 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-semibold text-gray-900">Dashboard Overview</h2>
           <p className="text-sm text-gray-500">Welcome back! Here's what's happening with your business today.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <input placeholder="Search products, orders, customers" className="text-gray-500 border rounded-lg px-3 py-2 text-sm w-[340px]" />
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+          <input placeholder="Search products, orders, customers" className="text-gray-500 border rounded-lg px-3 py-2 text-sm flex-1 sm:flex-none sm:w-[280px] lg:w-[340px]" />
         <button
-          className="px-4 py-2 bg-white border rounded-lg text-gray-800 active:bg-gray-200 transition-colors"
+          className="px-4 py-2 bg-white border rounded-lg text-gray-800 active:bg-gray-200 transition-colors whitespace-nowrap"
           onClick={() => setShowAddListing(true)}
         >
           + Add Product
         </button>
-          <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-sm text-gray-600">ID</div>
+          <div className="hidden sm:flex w-10 h-10 bg-gray-100 rounded-full items-center justify-center text-sm text-gray-600">ID</div>
         </div>
       </div>
 

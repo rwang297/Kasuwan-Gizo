@@ -57,13 +57,13 @@ export default function WalletPage() {
 
         <div className="space-y-3">
           {transactions.map((t) => (
-            <div key={t.id} className="flex items-center justify-between p-3 border rounded-lg">
-              <div>
-                <div className="text-sm font-medium">{t.title} <span className="ml-2 text-xs text-gray-500">{t.id}</span></div>
+            <div key={t.id} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3 border rounded-lg">
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-medium truncate">{t.title} <span className="ml-2 text-xs text-gray-500">{t.id}</span></div>
                 <div className="text-xs text-gray-400">{t.status}</div>
               </div>
 
-              <div className="text-right">
+              <div className="text-right flex-shrink-0">
                 <div className={`font-semibold ${t.type === 'credit' ? 'text-green-600' : 'text-red-600'}`}>{t.amount}</div>
                 <div className="text-xs text-gray-400">{t.date}</div>
               </div>

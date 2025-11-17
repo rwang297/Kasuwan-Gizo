@@ -16,19 +16,19 @@ export default function OrdersPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-gray-800">Products Management</h1>
           <p className="text-sm text-gray-500">Track and manage your Products</p>
         </div>
-        <div className="flex items-center gap-3">
-          <input placeholder="Search orders or customers..." className="border rounded-lg px-3 py-2 text-sm w-[340px] text-gray-600" />
-          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+          <input placeholder="Search orders or customers..." className="border rounded-lg px-3 py-2 text-sm flex-1 sm:flex-none sm:w-[200px] lg:w-[280px] text-gray-600" />
+          <select className="border rounded-lg px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
             <option>All Status</option>
             <option>Pending</option>
             <option>Completed</option>
           </select>
-          <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm">Filter</button>
+          <button className="px-3 py-2 bg-blue-600 text-white rounded text-sm whitespace-nowrap">Filter</button>
         </div>
       </div>
 

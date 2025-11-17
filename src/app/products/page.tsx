@@ -9,7 +9,7 @@ const products = [
     id: "p1",
     title: "Fresh Tomatoes Basket",
     category: "Electronics",
-    price: "$299.99",
+    price: "₦299.99",
     stock: 45,
     sold: 127,
     status: "Added",
@@ -19,7 +19,7 @@ const products = [
     id: "p2",
     title: "Organic Cotton Material",
     category: "Clothing",
-    price: "$29.99",
+    price: "₦2,000",
     stock: 0,
     sold: 89,
     status: "Added",
@@ -29,7 +29,7 @@ const products = [
     id: "p3",
     title: "Apples Basket",
     category: "Electronics",
-    price: "$199.99",
+    price: "₦199.99",
     stock: 23,
     sold: 156,
     status: "Added",
@@ -39,7 +39,7 @@ const products = [
     id: "p4",
     title: "Fresh Spinages",
     category: "Food & Beverage",
-    price: "$24.99",
+    price: "₦200",
     stock: 78,
     sold: 203,
     status: "Added",
@@ -49,7 +49,7 @@ const products = [
     id: "p5",
     title: "Toyota, Camry",
     category: "Beauty",
-    price: "$149.99",
+    price: "₦149,000",
     stock: 12,
     sold: 67,
     status: "Added",
@@ -59,7 +59,7 @@ const products = [
     id: "p6",
     title: "T-Shirts",
     category: "Accessories",
-    price: "$89.99",
+    price: "₦8,000",
     stock: 34,
     sold: 0,
     status: "Added",
@@ -92,17 +92,17 @@ export default function ProductsPage() {
             </Card>
             <Card
               title="Active Products"
-              value={<span className="text-green-500">{products.filter((p) => p.status === "Active").length}</span>}
+              value={<span className="text-gray-700">{products.filter((p) => p.status === "Active").length}</span>}
               icon={kpiIcon()}
             >
-              <div className="text-xs text-green-500">Active</div>
+              <div className="text-xs text-gray-700">Active</div>
             </Card>
             <Card
               title="Low Stock"
-              value={<span className="text-yellow-500">{products.filter((p) => p.stock > 0 && p.stock < 10).length}</span>}
+              value={<span className="text-gray-700">{products.filter((p) => p.stock > 0 && p.stock < 10).length}</span>}
               icon={kpiIcon()}
             >
-              <div className="text-xs text-yellow-500">1</div>
+              <div className="text-xs text-gray-700">1</div>
             </Card>
           </div>
 

@@ -13,7 +13,7 @@ export default function DashboardPage() {
 
 
   const stats = [
-    { title: "Total Revenue", value: "$24,580", change: "+12.5% vs last month", color: "green" },
+    { title: "Total Revenue", value: "₦24,580", change: "+12.5% vs last month", color: "green" },
     { title: "Total Products", value: "1,247", change: "8.2% vs last month", color: "teal" },
     { title: "Active Products", value: "156", change: "3.1% vs last month", color: "purple" },
     { title: "New Viewers", value: "89", change: "13.3% vs last month", color: "orange" },
